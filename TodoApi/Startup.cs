@@ -28,7 +28,7 @@ namespace TodoApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoApi", Version = "v1" });
             });
             services.AddDbContext<TodoContext>(opt =>
-                                               opt.UseInMemoryDatabase("TodoList"));
+                                               opt.UseSqlServer(Configuration.GetConnectionString("ToDoDataBase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
