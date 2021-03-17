@@ -9,8 +9,8 @@ using TodoApi.Models;
 namespace TodoApi.Migrations
 {
     [DbContext(typeof(TodoContext))]
-    [Migration("20210311111205_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210317101538_TodoImportantFlag")]
+    partial class TodoImportantFlag
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,6 +26,9 @@ namespace TodoApi.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsImportant")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
